@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Trivia Game</title>
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         background: linear-gradient(to bottom, #2b5876, powderblue);
+         color: #fff;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         min-height: 100vh;
+         margin: 0;
+      }
+      h1 {
+         font-size: 3em;
+         margin-bottom: 20px;
+      }
+      .card {
+         background-color: rgba(0, 0, 0, 0.3);
+         padding: 30px;
+         border-radius: 15px;
+         text-align: center;
+         box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+         max-width: 600px;
+         width: 100%;
+      }
+      select, button {
+         padding: 10px;
+         font-size: 1em;
+         margin-top: 10px;
+         border-radius: 5px;
+         border: none;
+      }
+      button {
+         background-color: #ff9800;
+         color: white;
+         cursor: pointer;
+         transition: background-color 0.3s;
+      }
+      button:hover {
+         background-color: #e68900;
+      }
+      .question {
+         margin-bottom: 15px;
+         text-align: left;
+      }
+      #result {
+         margin-top: 20px;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+
+<div class="card" id="homeScreen">
+   <h1>Trivia Game</h1>
+   <p>Select a category to start:</p>
+   <select id="categorySelect">
+      <option value="/api/general">General</option>
+      <option value="/api/history">History</option>
+      <option value="/api/politic">Politics</option>
+      <option value="/api/mythology">Mythology</option>
+      <option value="/api/geography">Geography</option>
+   </select>
+   <br>
+   <button id="startBtn">Start Game</button>
+</div>
+
+<div class="card" id="quizScreen" style="display: none;">
+   <div id="quizContainer"></div>
+   <button id="submit">Submit Quiz</button>
+   <div id="result"></div>
+</div>
+
+<script src="client.js"></script>
+<script>
+
+   document.getElementById('startBtn').addEventListener('click', () => {
+      const category = document.getElementById('categorySelect').value;
+      document.getElementById('homeScreen').style.display = 'none';
+      document.getElementById('quizScreen').style.display = 'block';
+
+      if (typeof loadQuiz === 'function') {
+         loadQuiz(category);
+      } else {
+         console.error("loadQuiz function not found. Make sure it's exposed from client.js");
+      }
+   });
+</script>
+
+</body>
+</html>
