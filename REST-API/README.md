@@ -3,7 +3,13 @@
   This repository contains two main components:\
   1. A functional, web-based Trivia Game that fetches questions from a public API and allows users to play.\
   2. A separate, self-contained Example REST API (RESTapi.js) that demonstrates how to build a full CRUD (Create, Read, Update, Delete) server with Node.js and Express.\
-\
+
+
+<img width="324" height="392" alt="Screenshot 2026-07-06 220028" src="https://github.com/user-attachments/assets/e7a3979a-260a-4cfc-a172-0bc9d1225684" />
+<img width="324" height="391" alt="Screenshot 2026-07-06 220118" src="https://github.com/user-attachments/assets/22956aee-f21d-41bd-9316-7abec5befe1b" />
+<img width="319" height="379" alt="Screenshot 2026-07-06 220206" src="https://github.com/user-attachments/assets/155f474a-d9ee-43b5-91cf-967b8bb54e88" />
+
+
 The primary application is the trivia game. The RESTapi.js file is included as a standalone educational example and is not used by the main trivia game.
 ## Part 1: The Trivia Game
   The trivia game is a client-server application where the frontend (index.html and client.js) communicates with a Node.js backend (server.js). The backend acts as a simple proxy, fetching quiz questions from the public Open Trivia Database and serving them to the client.
